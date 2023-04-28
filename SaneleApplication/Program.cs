@@ -52,6 +52,22 @@ namespace SaneleApplication
             }
             stepsArr[numSteps++] = step;
         }
+        public void DisplayRecipe()
+        {
+            Console.WriteLine("Ingredients:");
+            foreach (Ingredient ingredient in ingredientsArr)
+            {
+                if (ingredient != null)
+                {
+                    Console.WriteLine("- {0} {1} {2}", ingredient.quantity, ingredient.unit, ingredient.name);
+                }
+            }
+            Console.WriteLine("Steps:");
+            for (int i = 0; i < numSteps; i++)
+            {
+                Console.WriteLine("{0}. {1}", i + 1, stepsArr[i]);
+            }
+        }
 
 
 
