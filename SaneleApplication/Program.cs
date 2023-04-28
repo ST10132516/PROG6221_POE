@@ -68,6 +68,16 @@ namespace SaneleApplication
                 Console.WriteLine("{0}. {1}", i + 1, stepsArr[i]);
             }
         }
+        public void ScaleTheRecipe(double factor)
+        {
+            foreach (Ingredient ingredient in ingredientsArr)
+            {
+                if (ingredient != null)
+                {
+                    ingredient.quantity *= factor;
+                }
+            }
+        }
 
 
 
