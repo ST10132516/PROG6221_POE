@@ -1,4 +1,4 @@
-# PROG6221_POE
+# PROG6221_POE_Part1
 How to Compile and Run a C# Program Built Using Visual Studio
 1. Open Visual Studio and open the solution containing your C# project.
 
