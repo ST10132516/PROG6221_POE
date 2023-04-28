@@ -13,6 +13,57 @@ namespace SaneleApplication
             Console.WriteLine("Welcome to your recipe application Sanele.");//Welcome the user of the application
             Recipe r1 = new Recipe();
 
+            while (true)
+            {
+                Console.WriteLine("\n-------------------------------------" +
+                    "\nChoose an option from below:\n 1 - Add ingredient(s)\n 2 - Add step\n 3 - Display the recipe\n 4 - Scale the recipe\n " +
+                    "5 - Reset quantities to original values\n 6 - Clear all the data\n 7 - exit\n" +
+                    "-------------------------------------"); //list all available options to choose from
+                int selection = int.Parse(Console.ReadLine());
+
+                switch (selection)
+                {
+                    case 1:
+                        Console.WriteLine("Enter name of the ingredient:");
+                        string iName = Console.ReadLine();
+                        Console.WriteLine("Enter the quantity for the ingredient:");
+                        double iQuantity = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter ingredient unit:");
+                        string ingredientUnit = Console.ReadLine();
+                        r1.AddIngredient(iName, iQuantity, ingredientUnit);
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter step description:");
+                        string step = Console.ReadLine();
+                        r1.AddStep(step);
+                        break;
+
+                    case 3:
+                        r1.DisplayRecipe();
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Enter a factor to scale the ingredients by:");
+                        double scale = double.Parse(Console.ReadLine());
+                        r1.ScaleTheRecipe(scale);
+                        break;
+
+                    case 5:
+                        r1.RequestReset();
+                        break;
+
+                    case 6:
+                        r1.ClearData();
+                        break;
+                    case 7:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("That selection does not exist");
+                        break;
+                }
+            }
+
         }
     }
     class Ingredient
