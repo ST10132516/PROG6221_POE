@@ -78,6 +78,26 @@ namespace SaneleApplication
                 }
             }
         }
+        /*Method to reset the quantity value*/
+        public void RequestReset()
+        {
+            foreach (Ingredient ingredient in ingredientsArr)
+            {
+                if (ingredient != null)
+                {
+                    ingredient.quantity /= 2; // assuming quantities are scaled up by a factor of 2 initially
+                }
+            }
+        }
+
+        /*This method clears the contenets of the arrays and resets values*/
+        public void ClearData()
+        {
+            ingredientsArr = new Ingredient[10];
+            stepsArr = new string[10];
+            numIngredients = 0;
+            numSteps = 0;
+        }
 
 
 
