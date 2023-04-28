@@ -43,6 +43,15 @@ namespace SaneleApplication
             Ingredient ingredient = new Ingredient { name = name, quantity = quantity, unit = unit };
             ingredientsArr[numIngredients++] = ingredient; //increment the number of ingredients as more are added
         }
+        /*Below method allows the user to add steps*/
+        public void AddStep(string step)
+        {
+            if (numSteps >= stepsArr.Length)
+            {
+                Array.Resize(ref stepsArr, stepsArr.Length * 2); // double the capacity if needed
+            }
+            stepsArr[numSteps++] = step;
+        }
 
 
 
