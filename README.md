@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PROG6221_POE_Part1
 How to Compile and Run a C# Program Built Using Visual Studio
 1. Open Visual Studio and open the solution containing your C# project.
@@ -13,3 +14,6 @@ How to Compile and Run a C# Program Built Using Visual Studio
 6. Once your program has finished running, it will exit automatically or require you to press a key to exit the console application.
 
 # https://github.com/ST10132516/PROG6221_POE
+=======
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/Oa99dRjC)
+>>>>>>> 7fed21d7592764093ecccb1414ac104068ca4819
