@@ -10,6 +10,8 @@ namespace SaneleApplication
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to your recipe application Sanele.");//Welcome the user of the application
+            Recipe r1 = new Recipe();
 
         }
     }
