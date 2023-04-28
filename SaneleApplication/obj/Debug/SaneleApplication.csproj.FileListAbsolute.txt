@@ -1,8 +1,0 @@
-C:\Users\tmole\source\repos\ST1013216_TshiamoThekiso_PROG6221_POE\SaneleApplication\bin\Debug\SaneleApplication.exe.config
-C:\Users\tmole\source\repos\ST1013216_TshiamoThekiso_PROG6221_POE\SaneleApplication\bin\Debug\SaneleApplication.exe
-C:\Users\tmole\source\repos\ST1013216_TshiamoThekiso_PROG6221_POE\SaneleApplication\bin\Debug\SaneleApplication.pdb
-C:\Users\tmole\source\repos\ST1013216_TshiamoThekiso_PROG6221_POE\SaneleApplication\obj\Debug\SaneleApplication.csproj.AssemblyReference.cache
-C:\Users\tmole\source\repos\ST1013216_TshiamoThekiso_PROG6221_POE\SaneleApplication\obj\Debug\SaneleApplication.csproj.SuggestedBindingRedirects.cache
-C:\Users\tmole\source\repos\ST1013216_TshiamoThekiso_PROG6221_POE\SaneleApplication\obj\Debug\SaneleApplication.csproj.CoreCompileInputs.cache
-C:\Users\tmole\source\repos\ST1013216_TshiamoThekiso_PROG6221_POE\SaneleApplication\obj\Debug\SaneleApplication.exe
-C:\Users\tmole\source\repos\ST1013216_TshiamoThekiso_PROG6221_POE\SaneleApplication\obj\Debug\SaneleApplication.pdb
