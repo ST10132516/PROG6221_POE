@@ -1,24 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+delegate void notify(Recipe recipe);
 namespace SaneleApplication
 {
-    internal class Program
+    internal class Program : Recipe
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Welcome to your recipe application Sanele.");//Welcome the user of the application
-            Recipe r1 = new Recipe();
+        private static readonly List<string> foodGroups = new List<string> { "Fruit And Veg", "Protein", "Starch", "Dairy", "Fat" };
 
+        static void CaloryNotification(Recipe recipe)
+        {
+            int totalCalories = recipe.CalculateTotalCalories();
+            if (totalCalories > 300)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Warning: The total calories of this recipe exceed 300!");
+            }
+            Console.ResetColor();
+        }
+        static void ProcessRecipe(Recipe recipe)
+        {
+            notify n1 = new notify(CaloryNotification);
             while (true)
             {
                 Console.WriteLine("\n-------------------------------------" +
                     "\nChoose an option from below:\n 1 - Add ingredient(s)\n 2 - Add step\n 3 - Display the recipe\n 4 - Scale the recipe\n " +
-                    "5 - Reset quantities to original values\n 6 - Clear all the data\n 7 - exit\n" +
-                    "-------------------------------------"); //list all available options to choose from
+                    "5 - Reset quantities to original values\n 6 - Clear all the data\n 7 - Return to main menu\n" +
+                    "-------------------------------------");
+
                 int selection = int.Parse(Console.ReadLine());
 
                 switch (selection)
@@ -30,129 +40,130 @@ namespace SaneleApplication
                         double iQuantity = double.Parse(Console.ReadLine());
                         Console.WriteLine("Enter ingredient unit:");
                         string ingredientUnit = Console.ReadLine();
-                        r1.AddIngredient(iName, iQuantity, ingredientUnit);
+                        Console.WriteLine("Enter the number of calories for the ingredient:");
+                        int iCalories = int.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Select the food group for the ingredient:");
+                        for (int i = 0; i < foodGroups.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1} - {foodGroups[i]}");
+                        }
+                        int foodGroupSelection = int.Parse(Console.ReadLine());
+                        string iFoodGroup = foodGroups[foodGroupSelection - 1];
+
+                        recipe.AddIngredient(iName, iQuantity, ingredientUnit, iCalories, iFoodGroup);
+                        n1(recipe);
                         break;
+
                     case 2:
                         Console.WriteLine("Enter step description:");
                         string step = Console.ReadLine();
-                        r1.AddStep(step);
+                        recipe.AddStep(step);
                         break;
 
                     case 3:
-                        r1.DisplayRecipe();
+
+                        Console.WriteLine("Enter the name of the recipe to display:");
+                        string name = Console.ReadLine();
+                        recipe.DisplayRecipe(name);
+                        n1(recipe);
                         break;
 
                     case 4:
                         Console.WriteLine("Enter a factor to scale the ingredients by:");
                         double scale = double.Parse(Console.ReadLine());
-                        r1.ScaleTheRecipe(scale);
+                        recipe.ScaleTheRecipe(scale);
                         break;
 
                     case 5:
-                        r1.RequestReset();
+                        recipe.RequestReset();
                         break;
 
                     case 6:
-                        r1.ClearData();
+                        recipe.ClearData();
                         break;
+
                     case 7:
+                        Console.WriteLine("Returning to the main menu...");
+                        return;
+
+                    default:
+                        Console.WriteLine("That selection does not exist.");
+                        break;
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to your recipe application Sanele.");//Welcome the user of the application
+            Dictionary<string, Recipe> recipeBook = new Dictionary<string, Recipe>(); // Dictionary to store recipes
+
+            while (true)
+            {
+                Console.WriteLine("\n-------------------------------------" +
+                    "\nChoose an option from below:\n 1 - Create a new recipe\n 2 - Select a recipe\n 3 - Exit\n" +
+                    "-------------------------------------");
+
+                int selection = int.Parse(Console.ReadLine());
+                switch (selection)
+                {
+                    case 1:
+                        //the following option allows the user to enter the name of the recipe
+                        Console.WriteLine("Enter the name of the recipe:");
+                        string recipeName = Console.ReadLine();
+                        Recipe newRecipe = new Recipe();
+                        recipeBook.Add(recipeName, newRecipe);
+                        Console.WriteLine("Recipe '{0}' created.", recipeName);
+                        break;
+
+                        /*the following option allows the user to select a recipe to process, the user will be notified if the entered recipe does not exist*/
+                    case 2:
+                        if (recipeBook.Count == 0)
+                        {
+                            Console.WriteLine("No recipes available in the database. Please create a recipe first before continuing.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Available Recipes:");
+
+                            /*Sorting method amended from learn.microsoft website*/
+                            /*https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.sort?redirectedfrom=MSDN&view=net-7.0#System_Collections_Generic_List_1_Sort_System_Comparison__0__*/
+                            
+                            var sortedRecipeNames = recipeBook.Keys.OrderBy(name => name); //lambda expression to sort the names in alphabetical order 
+
+                            foreach (string availableRecipe in sortedRecipeNames) //for each to print out sorted names
+                            {
+                                Console.WriteLine("- " + availableRecipe);
+                            }
+
+                            Console.WriteLine("\nEnter the name of the recipe to select:");
+                            string selectedRecipe = Console.ReadLine();
+
+                            if (recipeBook.ContainsKey(selectedRecipe))
+                            {
+                                Recipe recipe = recipeBook[selectedRecipe];
+                                ProcessRecipe(recipe);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Recipe '{0}' does not exist.", selectedRecipe);
+                            }
+                        }
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Goodbye!");
                         Environment.Exit(0);
                         break;
+
                     default:
-                        Console.WriteLine("That selection does not exist");
+                        Console.WriteLine("That selection does not exist.");
                         break;
                 }
             }
 
         }
     }
-    class Ingredient
-    {
-        public string name;
-        public double quantity;
-        public string unit;
-    }
 
-    class Recipe
-    {
-        private Ingredient[] ingredientsArr;
-        private string[] stepsArr;
-        private int numIngredients;
-        private int numSteps;
-        public Recipe()
-        {
-            ingredientsArr = new Ingredient[10]; // start with capacity for 10 ingredients
-            stepsArr = new string[10]; // start with capacity for 10 steps
-            numIngredients = 0;
-            numSteps = 0;
-        }
-        /*Method to add individual ingredients*/
-        public void AddIngredient(string name, double quantity, string unit)
-        {
-            if (numIngredients >= ingredientsArr.Length)
-            {
-                Array.Resize(ref ingredientsArr, ingredientsArr.Length * 2); // double the capacity if adding more than one ingredient
-            }
-            Ingredient ingredient = new Ingredient { name = name, quantity = quantity, unit = unit };
-            ingredientsArr[numIngredients++] = ingredient; //increment the number of ingredients as more are added
-        }
-        /*Below method allows the user to add steps*/
-        public void AddStep(string step)
-        {
-            if (numSteps >= stepsArr.Length)
-            {
-                Array.Resize(ref stepsArr, stepsArr.Length * 2); // double the capacity if needed
-            }
-            stepsArr[numSteps++] = step;
-        }
-        public void DisplayRecipe()
-        {
-            Console.WriteLine("Ingredients:");
-            foreach (Ingredient ingredient in ingredientsArr)
-            {
-                if (ingredient != null)
-                {
-                    Console.WriteLine("- {0} {1} {2}", ingredient.quantity, ingredient.unit, ingredient.name);
-                }
-            }
-            Console.WriteLine("Steps:");
-            for (int i = 0; i < numSteps; i++)
-            {
-                Console.WriteLine("{0}. {1}", i + 1, stepsArr[i]);
-            }
-        }
-        public void ScaleTheRecipe(double factor)
-        {
-            foreach (Ingredient ingredient in ingredientsArr)
-            {
-                if (ingredient != null)
-                {
-                    ingredient.quantity *= factor;
-                }
-            }
-        }
-        /*Method to reset the quantity value*/
-        public void RequestReset()
-        {
-            foreach (Ingredient ingredient in ingredientsArr)
-            {
-                if (ingredient != null)
-                {
-                    ingredient.quantity /= 2; // assuming quantities are scaled up by a factor of 2 initially
-                }
-            }
-        }
-
-        /*This method clears the contenets of the arrays and resets values*/
-        public void ClearData()
-        {
-            ingredientsArr = new Ingredient[10];
-            stepsArr = new string[10];
-            numIngredients = 0;
-            numSteps = 0;
-        }
-
-
-
-    }
+    
 }

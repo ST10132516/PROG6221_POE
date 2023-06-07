@@ -13,6 +13,12 @@ How to Compile and Run a C# Program Built Using Visual Studio
 
 6. Once your program has finished running, it will exit automatically or require you to press a key to exit the console application.
 
+# Version 2 Features:
+1. Being able to enter an unlimited number of recipes
+2. Being able to enter a name for each recipe
+3. Slightly new formatting for displaying the recipe
+4. New menu with basic functions
+5. Warning added when the calories of a recipe exceed 300
 # https://github.com/ST10132516/PROG6221_POE
 # https://github.com/IIEWFL/prog6221-part-1-ST10132516
 =======
