@@ -21,5 +21,5 @@ How to Compile and Run a C# Program Built Using Visual Studio
 4. New menu with basic functions
 5. Warning added when the calories of a recipe exceed 300
 # https://github.com/ST10132516/PROG6221_POE
-# https://github.com/IIEWFL/prog6221-part-1-ST10132516
+# https://github.com/IIEWFL/prog6221-part-2-ST10132516
 =======
