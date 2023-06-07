@@ -23,8 +23,3 @@ How to Compile and Run a C# Program Built Using Visual Studio
 # https://github.com/ST10132516/PROG6221_POE
 # https://github.com/IIEWFL/prog6221-part-1-ST10132516
 =======
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/Oa99dRjC)
->>>>>>> 7fed21d7592764093ecccb1414ac104068ca4819
-=======
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/UNE9qtbP)
->>>>>>> 61a3abc7b35145b15521c4ff5ceca7d82dbde1e1
