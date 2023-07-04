@@ -31,6 +31,8 @@ Version 2 of the Recipe Manager application introduces several new features to e
 With these new features, the Recipe Manager application empowers users to efficiently organize their recipes, maintain nutritional awareness, and create delightful culinary experiences.
 
 **Note:** The application is continually being improved and updated. Please refer to the application documentation for the most up-to-date information on features and functionality.
+A video of how to run the application can be viewed using the first link below
+# https://youtu.be/ArSEVjFtfGw
 
 # https://github.com/ST10132516/PROG6221_POE
 # https://github.com/IIEWFL/prog6221-poe-ST10132516
