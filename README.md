@@ -1,25 +1,38 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# PROG6221_POE_Part1
-How to Compile and Run a C# Program Built Using Visual Studio
-1. Open Visual Studio and open the solution containing your C# project.
+# ST1013216_TshiamoThekiso_PROG6221_POE
 
-2. Build your project by selecting "Build" from the main menu and then choosing "Build Solution" or by using the keyboard shortcut Ctrl+Shift+B. This will compile your project and generate an executable file.
+The Recipe Manager application is a C# program built using Visual Studio that allows users to manage and organize their recipes. It provides an intuitive interface for entering and storing recipe details, including ingredients and steps.
 
-3. Once the build process is completed successfully, locate the executable file. By default, it should be in the bin/Debug or bin/Release folder within your project directory. The name of the executable file should match the name of your project.
+## How to Compile and Run the Application
+
+1. Open Visual Studio and open the solution containing the Recipe Manager project.
+
+2. Build the project by selecting "Build" from the main menu and then choosing "Build Solution" or by using the keyboard shortcut Ctrl+Shift+B. This will compile the project and generate an executable file.
+
+3. Once the build process is completed successfully, locate the executable file. By default, it should be in the `bin/Debug` or `bin/Release` folder within the project directory. The name of the executable file should match the name of the project.
 
 4. Double-click on the executable file to run it. Alternatively, you can run it from the command prompt by navigating to the directory containing the executable file and entering its name.
 
-5. Follow the prompts displayed on the console.
+5. The Recipe Manager application will launch, presenting you with a user-friendly interface to interact with.
 
-6. Once your program has finished running, it will exit automatically or require you to press a key to exit the console application.
+## New Functionality in Version 2
 
-# Version 2 Features:
-1. Being able to enter an unlimited number of recipes
-2. Being able to enter a name for each recipe
-3. Slightly new formatting for displaying the recipe
-4. New menu with basic functions
-5. Warning added when the calories of a recipe exceed 300
+Version 2 of the Recipe Manager application introduces several new features to enhance the user experience and expand the capabilities of the program (this includes a switch to the new Graphical User Interface):
+
+1. **Unlimited Number of Recipes:** Users can now enter and manage an unlimited number of recipes within the application.
+
+2. **Recipe Name Entry:** Each recipe can be assigned a unique name, allowing for easy identification and retrieval of specific recipes.
+
+3. **Improved Recipe Formatting:** The display of recipe details has been updated with a more user-friendly formatting, enhancing readability and clarity.
+
+4. **Enhanced Menu Functionality:** A new menu has been implemented, providing basic functions for managing recipes, such as adding ingredients, adding steps, and creating new recipes.
+
+5. **Calorie Warning:** Users are now alerted with a warning message when the total calories of a recipe exceed 300. This helps users maintain a healthy balance in their recipes and make informed decisions about their ingredients.
+
+With these new features, the Recipe Manager application empowers users to efficiently organize their recipes, maintain nutritional awareness, and create delightful culinary experiences.
+
+**Note:** The application is continually being improved and updated. Please refer to the application documentation for the most up-to-date information on features and functionality.
+A video of how to run the application can be viewed using the first link below
+# https://youtu.be/ArSEVjFtfGw
+
 # https://github.com/ST10132516/PROG6221_POE
-# https://github.com/IIEWFL/prog6221-part-2-ST10132516
-=======
+# https://github.com/IIEWFL/prog6221-poe-ST10132516
